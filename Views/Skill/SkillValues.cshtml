@@ -1,0 +1,38 @@
+﻿@model PortfolyoProjectNight_2.Models.Skill
+@{
+    ViewBag.Title = "SkillList";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h2>Yetenek Değerleri</h2>
+<br />
+<br />
+
+<div>
+    <canvas id="myChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['C#', 'SQL', ':NET.CORE', 'JS', 'CSS', 'HTML',''],
+      datasets: [{
+        label: '# YETENEK DEĞERLERİ',
+        data: [90, 50, 65, 50, 85, 90,100],
+        borderWidth: 3
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>

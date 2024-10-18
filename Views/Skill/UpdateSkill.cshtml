@@ -1,0 +1,27 @@
+﻿@model PortfolyoProjectNight_2.Models.Skill
+@{
+    ViewBag.Title = "UpdateSkill";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h4 class="alert alert-success">Yetenek Güncelleme Sayfası</h4>
+
+
+
+<form method="post">
+    @Html.HiddenFor(x => x.SkillId, new { @class = "form-control" })
+    <br />
+    <label>Yetenek Başlığı</label>
+    @Html.TextBoxFor(x => x.SkillName, new { @class = "form-control" })
+    <br />
+    <label>Yetenek Değeri</label>
+    @Html.TextBoxFor(x => x.Rate, new { @class = "form-control" })
+    <br />
+    <label>Yetenek ikonu </label>
+    @Html.TextBoxFor(x => x.Icon, new { @class = "form-control" })
+    <br />
+    
+
+    <Button class="btn btn-info">Yeteneği güncelle</Button>
+
+</form>

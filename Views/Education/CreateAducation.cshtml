@@ -1,0 +1,22 @@
+﻿@model PortfolyoProjectNight_2.Models.Education
+@{
+    ViewBag.Title = "CreateAducation";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h2 class="alert alert-success">Yeni Eğitim Bilgisi Girişi</h2>
+<br /><br />
+
+<form method="post">
+    <label>Eğitim Tarihi</label>
+    @Html.TextAreaFor(x=>x.Title,new {@class="form-control"})
+    <br />
+    <label>Alt Başlık</label>
+    @Html.TextAreaFor(x=>x.SubTitle, new { @class = "form-control" })
+    <br />
+    <label>Açıklama</label>
+    @Html.TextAreaFor(x=>x.Description, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Eğitim bilgisini kaydet</button>
+</form>
+

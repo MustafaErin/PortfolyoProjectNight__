@@ -1,0 +1,32 @@
+﻿@model List<PortfolyoProjectNight_2.Models.Category>
+@{
+    ViewBag.Title = "CategoryList";
+    Layout = "~/Views/Admin/Index.cshtml";
+    var count = 0;
+}
+
+<h2>Categori Listesi</h2>
+
+<br />
+<table class="table table-bordered">
+    <tr class="alert alert-success">
+        <th>No:</th>
+        <th>Kategori Adı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.CategoryName</td>
+            <td><a href="/Category/DeleteCategory/@item.CategoryId" class="btn btn-danger">sil</a></td>
+            <td><a href="/Category/UpdateCategory/@item.CategoryId" class="btn btn-warning">Güncelle</a></td>
+        </tr>
+     
+    }
+
+</table>
+
+<a href="/Category/CreateCategory" class="btn btn-success">Yeni Kategori Girişi</a>

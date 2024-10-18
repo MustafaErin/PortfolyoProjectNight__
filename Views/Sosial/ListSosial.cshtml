@@ -1,0 +1,53 @@
+﻿@model List<PortfolyoProjectNight_2.Models.SosialMedia>
+@{
+    ViewBag.Title = "ListSosial";
+    Layout = "~/Views/Admin/Index.cshtml";
+    var count = 0;
+    var deger = ViewBag.deger1;
+}
+
+<h2 class="alert alert-success">Sosyal Medya Listesi</h2>
+<br />
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>No:</th>
+        <th>Sosyal Medya Adı</th>
+        <th>İcon</th>
+        <th>statüsü</th>
+        <th>statü değiştir</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.Title</td>
+            <td><a href="@item.Url" class="@item.İcon"></a></td>
+            <td>@item.Status</td>
+            <td>
+                @if (item.Status == false)
+                {
+                    <a href="/Sosial/ToTrue/@item.SosialMediaId" class="btn btn-success">Aktif Yap</a>
+                }
+                else
+                {
+                    <a href="/Sosial/ToFalse/@item.SosialMediaId" class="btn btn-dark">Pasif Yap</a>
+                }
+            </td>
+            <td><a href="/Sosial/DeleteSosial/@item.SosialMediaId" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Sosial/UpdateSosial/@item.SosialMediaId" class="btn btn-warning">Güncelle</a></td>
+
+        </tr>
+    }
+</table>
+
+<br />
+<br />
+
+<a href="/Sosial/CreateSosial/" class="btn btn-success">Sosyal Medya Ekle</a>
+

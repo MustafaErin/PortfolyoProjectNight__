@@ -1,0 +1,84 @@
+﻿@model List<PortfolyoProjectNight_2.Models.Contact>
+
+@{
+    ViewBag.Title = "İnbox";
+    Layout = "~/Views/Admin/Index.cshtml";
+    int count = 0;
+    
+
+}
+
+<h3 class="alert alert-success">İnbox</h3>
+<br />
+<br />
+
+<table class="table table-bordered">
+    <tr  class="alert alert-success">
+        <th>No</th>
+        <th>Gönderen</th>
+        <th>Tarih</th>
+        <th>Durum </th>
+        <th>mesaj</th>
+        <th>email </th>
+        <th>Mesajı Aç</th>
+        <th>Mesajı sil</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        count++;
+
+        <tr>
+            <td>@count</td>
+            <td>@item.NameSurname</td>
+            <td>@item.SandDate</td>
+            @if (item.İsRead == false)
+            {
+                <td><a href="/Message/ChangeMessageStatusToTrue/@item.ContactId" class="btn btn-info">okundu</a></td>
+            }
+            else
+            {
+                <td><a href="/Message/ChangeMessageStatusToFalse/@item.ContactId" class="btn btn-dark">okunmadı</a></td>
+            }
+            @if (item.CategoryId == 1)
+            {
+                <td style="background-color:antiquewhite">@item.Message</td>
+            }
+            else if (item.CategoryId == 2)
+            {
+                <td style="background-color:aquamarine">@item.Message</td>
+            }
+            else if (item.CategoryId == 3)
+            {
+                <td style="background-color:burlywood">@item.Message</td>
+            }
+            else if (item.CategoryId == 4)
+            {
+                <td style="background-color:chartreuse">@item.Message</td>
+            }
+            else if (item.CategoryId == 5)
+            {
+                <td style="background-color:cadetblue">@item.Message</td>
+            }
+            else if (item.CategoryId == 6)
+            {
+                <td style="background-color:coral">@item.Message</td>
+            }
+            else if (item.CategoryId == 7)
+            {
+                <td style="background-color:darkgray">@item.Message</td>
+            }
+            else
+            {
+                <td style="background-color:darkorange">@item.Message</td>
+            }
+
+            <td>@item.Email</td>
+            <td><a href="#" class="btn btn-warning">Mesajı Aç</a></td>
+            <td><a href="/Message/DeleteMessage/@item.ContactId" class="btn btn-danger">Mesajı sil</a></td>
+
+        </tr>
+     }
+
+    </table>
+

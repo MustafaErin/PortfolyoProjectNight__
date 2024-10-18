@@ -1,0 +1,16 @@
+﻿@model PortfolyoProjectNight_2.Models.Category
+@{
+    ViewBag.Title = "CreateCategory";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h2 class="alert alert-success">Kategori Oluştur</h2>
+<br />
+<br />
+<form method="post">
+    <label>Kategori Adı</label>
+    @Html.TextAreaFor(x => x.CategoryName, new {@class="form-control"})
+<br />
+<button class="btn btn-success">Kategori'yi Ekle</button>
+</form>
+

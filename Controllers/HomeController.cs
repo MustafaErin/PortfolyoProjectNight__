@@ -26,5 +26,9 @@ namespace PortfolyoProjectNight_2.Controllers
 
             return View();
         }
+        public ActionResult AboutMe()
+        {
+            return View();
+        }
     }
 }

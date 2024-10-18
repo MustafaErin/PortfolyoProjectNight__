@@ -1,0 +1,56 @@
+﻿
+@model PagedList.IPagedList<PortfolyoProjectNight_2.Models.Skill>
+@using PagedList
+@using PagedList.Mvc
+
+@{
+    ViewBag.Title = "SkillList";
+    Layout = "~/Views/Admin/Index.cshtml";
+    var count = 0;
+}
+<h4 class="alert alert-success">Yetenek Listesi ve İşlemleri</h4>
+<br />
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>No:</th>
+        <th>Baslık</th>
+        <th>Değer</th>
+        <th>İkon</th>
+        <th>sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.SkillName</td>
+            <td>@item.Rate</td>
+            <td><a href="#" class="@item.Icon"></a></td>
+            <td><a href="/Skill/DeleteSkill/@item.SkillId" class="btn btn-danger">sil</a></td>
+            <td><a href="/Skill/UpdateSkill/@item.SkillId" class="btn btn-warning">Güncelle</a></td>
+        </tr>
+    }
+
+</table>
+<br />
+
+
+
+
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("SkillList", new { sayfa }), new PagedListRenderOptions
+{
+    LiElementClasses = new List<string>
+    {"page-link"}
+})
+
+
+<br />
+
+<a href="/Skill/CreateSkill/" class="btn btn-info">Yetenek Ekle</a>
+
+
+
+

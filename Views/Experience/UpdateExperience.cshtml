@@ -1,0 +1,25 @@
+﻿@model PortfolyoProjectNight_2.Models.Experience
+@{
+    ViewBag.Title = "UpdateExperiance";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h2 class="alert alert-success">Deneyim güncelleme sayfası</h2>
+<br />
+<br />
+
+<form method="post">
+    @Html.HiddenFor(x=>x.Id)
+    <label>Deneyim Başlığı</label>
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    <br />
+    <label>Deneyim alt baslığı</label>
+    @Html.TextBoxFor(x => x.SubTitle, new { @class = "form-control" })
+    <br />
+    
+    <button class="btn btn-info">Deneyimi Düzenle</button>
+</form>
+
+
+
+

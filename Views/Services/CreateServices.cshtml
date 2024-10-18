@@ -1,0 +1,23 @@
+﻿@model PortfolyoProjectNight_2.Models.Service
+@{
+    ViewBag.Title = "CreateServices";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h2 class="alert alert-success">Yeni Hizmet Oluştur</h2>
+<br />
+<br />
+
+<form method="post">
+    <label>Hizmet Adı</label>
+    @Html.TextAreaFor(x=>x.Title, new {@class="form-control"})
+<br />
+<label>İcon</label>
+    @Html.TextAreaFor(x=>x.İcon, new {@class="form-control"})
+<br />
+<label>Açıklama</label>
+    @Html.TextAreaFor(x => x.Description, new {@class="form-control"})
+<br />
+<button class="btn btn-success">Ekle</button>
+</form>
+

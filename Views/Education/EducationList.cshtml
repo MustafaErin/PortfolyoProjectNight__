@@ -1,0 +1,39 @@
+﻿@model List<PortfolyoProjectNight_2.Models.Education>
+@{
+    ViewBag.Title = "EducationList";
+    Layout = "~/Views/Admin/Index.cshtml";
+    var count = 0;
+}
+
+<h2 class="alert alert-success">Eğitim hayatı Listem</h2>
+<br />
+<br />
+
+
+<table class="table table-bordered">
+    <tr class="alert alert-success">
+        <th>No</th>
+        <th>Başlık</th>
+        <th>Alt BAşlık</th>
+        <th>Açıklama</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var item in Model)
+     {
+                count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.Title</td>
+            <td>@item.SubTitle</td>
+            <td>@item.Description</td>
+            <td><a href="/Education/DeleteEducation/@item.EducationId" class="btn btn-danger">sil</a></td>
+            <td><a href="/Education/UpdateAducation/@item.EducationId" class="btn btn-warning">Güncelle</a></td>
+        </tr>
+    }
+
+
+</table>
+
+<a href="/Education/CreateAducation/" class="btn btn-info">Yeni Eğitim Bilgisi Girişi</a>
+
